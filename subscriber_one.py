@@ -38,14 +38,25 @@ class SubscriberOne:
         if json_data_in['publisher'] == 'PublisherOne':
             self.pub_one_dic[key] = json_data_in
             self.data_list_pub_one.append(json_data_in)
+            if self.pub_one_dic:
+                print("Messages received by pub_one_dic:")
+            for key, value in self.pub_one_dic.items():
+                print(key, ":", value)
+            else:
+                print("No messages received by pub_one_dic.")
         elif json_data_in['publisher'] == 'PublisherTwo':
             self.pub_two_dic[key] = json_data_in
             self.data_list_pub_two.append(json_data_in)
+            if self.pub_two_dic:
+                print("Messages received by pub_two_dic:")
+            for key, value in self.pub_two_dic.items():
+                print(key, ":", value)
+            else:
+                print("No messages received by pub_two_dic.")
 
 
 if __name__ == "__main__":
     subsone = SubscriberOne()
-    subsone.run
-
+    subsone.run()
     while True:
         pass
