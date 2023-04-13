@@ -38,8 +38,8 @@ class SubscriberTwo:
             self.data_list_pub_one.append(json_data_in)
             if self.pub_one_dic:
                 print("Messages received by pub_one_dic:")
-            for key, value in self.pub_one_dic.items():
-                print(key, ":", value)
+                for key, value in self.pub_one_dic.items():
+                    print(key, ":", value)
             else:
                 print("No messages received by pub_one_dic.")
         elif json_data_in['publisher'] == 'PublisherThree':
@@ -47,8 +47,8 @@ class SubscriberTwo:
             self.data_list_pub_three.append(json_data_in)
             if self.pub_three_dic:
                 print("Messages received by pub_three_dic:")
-            for key, value in self.pub_three_dic.items():
-                print(key, ":", value)
+                for key, value in self.pub_three_dic.items():
+                    print(key, ":", value)
             else:
                 print("No messages received by pub_three_dic.")
 
