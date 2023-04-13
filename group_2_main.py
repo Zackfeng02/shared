@@ -4,12 +4,12 @@ from matplotlib.figure import Figure
 from datetime import datetime, timedelta
 import threading
 
-from broker import Broker
-from publisher_one import PublisherOne
-from publisher_two import PublisherTwo
-from publisher_three import PublisherThree
-from subscriber_one import SubscriberOne
-from subscriber_two import SubscriberTwo
+from group_2_broker import Broker
+from group_2_publisher_one import PublisherOne
+from group_2_publisher_two import PublisherTwo
+from group_2_publisher_three import PublisherThree
+from group_2_subscriber_one import SubscriberOne
+from group_2_subscriber_two import SubscriberTwo
 
 
 class PlotData:
