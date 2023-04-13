@@ -10,7 +10,7 @@ import paho.mqtt.client as mqtt
 
 
 def random_generator() -> float:
-    return random.gauss(1, 1)
+    return random.gauss(1, 0.3)
 
 
 class PublisherOne:

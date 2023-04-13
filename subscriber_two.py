@@ -1,7 +1,5 @@
 import json
-import time
 from datetime import datetime
-
 import paho.mqtt.client as mqtt
 
 
@@ -33,24 +31,33 @@ class SubscriberTwo:
         json_data_in = json.loads(json_data_decode)
         key = str(datetime.now())
         self.all_data_dic[key] = json_data_in
+        # split data into two dictionaries
         if json_data_in['publisher'] == 'PublisherOne':
+            # pub_one_dic stores all data from publisher one and data_list_pub_one store the latest 100
             self.pub_one_dic[key] = json_data_in
             self.data_list_pub_one.append(json_data_in)
-            if self.pub_one_dic:
-                print("Messages received by pub_one_dic:")
-                for key, value in self.pub_one_dic.items():
-                    print(key, ":", value)
+            # data_list_pub_one will only store up to 100 set of values to plot
+            if len(self.data_list_pub_one) > 100:
+                self.data_list_pub_one = self.data_list_pub_one[1:]
+            # Content check
+            if self.data_list_pub_one:
+                print("Messages received by data_list_pub_one:")
+                print(self.data_list_pub_one)
             else:
-                print("No messages received by pub_one_dic.")
+                print("No messages received by data_list_pub_one:.")
         elif json_data_in['publisher'] == 'PublisherThree':
+            # pub_three_dic stores all data from publisher three and data_list_pub_three store the latest 100
             self.pub_three_dic[key] = json_data_in
             self.data_list_pub_three.append(json_data_in)
-            if self.pub_three_dic:
-                print("Messages received by pub_three_dic:")
-                for key, value in self.pub_three_dic.items():
-                    print(key, ":", value)
+            # data_list_pub_two will only store up to 100 set of values to plot
+            if len(self.data_list_pub_three) > 100:
+                self.data_list_pub_three = self.data_list_pub_three[1:]
+            # Content check
+            if self.data_list_pub_three:
+                print("Messages received by data_list_pub_three:")
+                print(self.data_list_pub_three)
             else:
-                print("No messages received by pub_three_dic.")
+                print("No messages received by data_list_pub_three.")
 
 
 if __name__ == "__main__":

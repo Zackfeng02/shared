@@ -33,11 +33,11 @@ class SubscriberOne:
         self.all_data_dic[key] = json_data_in
         # split data into two dictionaries
         if json_data_in['publisher'] == 'PublisherOne':
-            # pub_one_dic stores all data from publisher one and data_list_pub_one store the latest 15
+            # pub_one_dic stores all data from publisher one and data_list_pub_one store the latest 100
             self.pub_one_dic[key] = json_data_in
             self.data_list_pub_one.append(json_data_in)
-            # data_list_pub_one will only store up to 15 set of values to plot
-            if len(self.data_list_pub_one) > 15:
+            # data_list_pub_one will only store up to 100 set of values to plot
+            if len(self.data_list_pub_one) > 100:
                 self.data_list_pub_one = self.data_list_pub_one[1:]
             # Content check
             if self.data_list_pub_one:
@@ -46,11 +46,11 @@ class SubscriberOne:
             else:
                 print("No messages received by data_list_pub_one:.")
         elif json_data_in['publisher'] == 'PublisherTwo':
-            # pub_two_dic stores all data from publisher two and data_list_pub_two store the latest 15
+            # pub_two_dic stores all data from publisher two and data_list_pub_two store the latest 100
             self.pub_two_dic[key] = json_data_in
             self.data_list_pub_two.append(json_data_in)
-            # data_list_pub_two will only store up to 15 set of values to plot
-            if len(self.data_list_pub_two) > 15:
+            # data_list_pub_two will only store up to 100 set of values to plot
+            if len(self.data_list_pub_two) > 100:
                 self.data_list_pub_two = self.data_list_pub_two[1:]
             # Content check
             if self.data_list_pub_two:
